@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import poolImage from "../../assets/haya/facilities/pool.jpg";
-import eventImage from "../../assets/haya/events/event-11.jpg";
-import activitiesImage from "../../assets/haya/facilities/activities.jpg";
+import poolImage from "../../assets/haya/Facilities/pool.jpg";
+import eventImage from "../../assets/haya/Events/event-11.jpg";
+import activitiesImage from "../../assets/haya/Facilities/activities.jpg";
 
 import "./ExperienceSection.css";
 
