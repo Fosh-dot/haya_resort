@@ -1,0 +1,335 @@
+/* =========================================
+   HAYA NATURE RESORT NAVIGATION
+========================================= */
+
+.haya-navbar {
+  width: 100%;
+  min-height: 125px;
+  height: 200px;
+  padding: 8px 18px 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-sizing: border-box;
+  background-color: white;
+  position: relative;
+  z-index: 1000;
+}
+
+/* LOGO — KEEPING EXISTING DIMENSIONS */
+
+.haya-navbar-logo {
+  flex: 0 0 250px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.haya-navbar-logo img {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* MAIN NAVIGATION */
+
+.haya-navbar-links {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.haya-navbar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: #a0af2a;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.haya-navbar-link:hover,
+.haya-navbar-link.active {
+  color: #6e8c0b;
+}
+
+/* =========================================
+   ROOMS AND EXPERIENCE DROPDOWNS
+========================================= */
+
+.haya-nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.haya-dropdown-heading {
+  display: flex;
+  align-items: center;
+}
+
+.haya-dropdown-trigger {
+  cursor: pointer;
+}
+
+/* Dropdown toggle arrow: hidden on desktop */
+
+.haya-dropdown-toggle {
+  display: none;
+}
+
+/* Dropdown menu */
+
+.haya-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1100;
+  width: 305px;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f3df;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 7px);
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease;
+}
+
+/* Open on hover or keyboard focus */
+
+.haya-nav-dropdown:hover .haya-dropdown-menu,
+.haya-nav-dropdown:focus-within .haya-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+/* Individual dropdown links */
+
+.haya-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 9px 24px;
+  box-sizing: border-box;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #85865f;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.haya-dropdown-item:hover,
+.haya-dropdown-item.active {
+  color: #6e8c0b;
+  background-color: rgba(110, 140, 11, 0.07);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.haya-mobile-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  border: 1px solid rgba(110, 140, 11, 0.3);
+  background: transparent;
+  cursor: pointer;
+}
+
+.haya-mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 4px 0;
+  background-color: #6e8c0b;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .haya-navbar {
+    padding: 18px 24px;
+    gap: 22px;
+  }
+
+  .haya-navbar-logo {
+    flex-basis: 200px;
+  }
+
+  .haya-navbar-logo img {
+    max-width: 200px;
+  }
+
+  .haya-navbar-links {
+    gap: 12px;
+  }
+
+  .haya-navbar-link {
+    font-size: 14px;
+  }
+
+  .haya-dropdown-menu {
+    width: 270px;
+  }
+
+  .haya-dropdown-item {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+  .haya-navbar {
+    height: auto;
+    min-height: 100px;
+    padding: 16px 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .haya-navbar-logo {
+    flex: 0 0 auto;
+    width: 190px;
+  }
+
+  .haya-navbar-logo img {
+    max-width: 190px;
+  }
+
+  .haya-mobile-toggle {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .haya-navbar-links {
+    display: none;
+    flex: 0 0 100%;
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .haya-navbar-links.mobile-open {
+    display: flex;
+  }
+
+  .haya-navbar-link {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 4px;
+    justify-content: flex-start;
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .haya-nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-self: auto;
+  }
+
+  .haya-dropdown-heading {
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+  }
+
+  .haya-dropdown-heading > .haya-dropdown-trigger {
+    flex: 1;
+    width: auto;
+  }
+
+  .haya-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    border: 0;
+    background: transparent;
+    color: #6e8c0b;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .haya-dropdown-toggle span {
+    display: block;
+    transition: transform 0.2s ease;
+  }
+
+  .haya-nav-dropdown.mobile-dropdown-open .haya-dropdown-toggle span {
+    transform: rotate(180deg);
+  }
+
+  .haya-dropdown-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    padding: 4px 0;
+    box-shadow: none;
+    background-color: #f8f3df;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
+  }
+
+  .haya-nav-dropdown.mobile-dropdown-open .haya-dropdown-menu {
+    display: flex;
+  }
+
+  .haya-nav-dropdown:hover .haya-dropdown-menu,
+  .haya-nav-dropdown:focus-within .haya-dropdown-menu {
+    transform: none;
+  }
+
+  .haya-dropdown-item {
+    padding: 10px 16px;
+    font-size: 13px;
+    white-space: normal;
+  }
+}

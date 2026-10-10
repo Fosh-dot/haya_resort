@@ -1,0 +1,192 @@
+/* ========================================
+   HAYA RESORT — BOOK NOW PAGE
+======================================== */
+
+.book-now-page {
+  width: 100%;
+  min-height: 65vh;
+  background-color: #f8f7e9;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Green terms and conditions notice */
+
+.booking-notice {
+  width: 100%;
+  min-height: 58px;
+  padding: 16px 24px;
+  background-color: #a5b83e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.7px;
+  box-sizing: border-box;
+}
+
+/* Date selection area */
+
+.book-now-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 65px 20px;
+  box-sizing: border-box;
+}
+
+/* Booking form */
+
+.book-now-form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Individual date fields */
+
+.book-now-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-now-field label {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.book-now-field input {
+  width: 150px;
+  height: 43px;
+  padding: 8px 10px;
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.book-now-field input:focus {
+  border-color: #a5b83e;
+  box-shadow: 0 0 0 2px rgba(165, 184, 62, 0.15);
+}
+
+/* GO button */
+
+.book-now-go {
+  width: 65px;
+  height: 55px;
+  border: none;
+  border-radius: 0;
+  background-color: #62645c;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.book-now-go:hover {
+  background-color: #45473f;
+}
+
+.book-now-go:active {
+  transform: scale(0.97);
+}
+
+/* Validation message */
+
+.book-now-error {
+  margin-top: 20px;
+  color: #b42318;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ========================================
+   TABLET RESPONSIVENESS
+======================================== */
+
+@media (max-width: 768px) {
+  .book-now-page {
+    min-height: 60vh;
+  }
+
+  .booking-notice {
+    padding: 15px 18px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+  }
+
+  .book-now-content {
+    padding: 50px 20px;
+  }
+
+  .book-now-form {
+    gap: 18px;
+  }
+
+  .book-now-field input {
+    width: 145px;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+======================================== */
+
+@media (max-width: 480px) {
+  .book-now-page {
+    min-height: 55vh;
+  }
+
+  .booking-notice {
+    min-height: 65px;
+    padding: 14px 16px;
+    font-size: 10px;
+    line-height: 1.8;
+  }
+
+  .book-now-content {
+    padding: 40px 16px;
+  }
+
+  .book-now-form {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .book-now-field {
+    width: 100%;
+  }
+
+  .book-now-field input {
+    width: 100%;
+    height: 45px;
+  }
+
+  .book-now-go {
+    width: 100%;
+    height: 48px;
+    margin-top: 2px;
+  }
+}

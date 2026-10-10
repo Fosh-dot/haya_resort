@@ -1,0 +1,175 @@
+/* =========================================
+   HAYA RESORT — PUBLIC LAYOUT
+========================================= */
+
+.site {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.site-main {
+  flex: 1 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   FOOTER — MATCHING ORIGINAL HAYA WEBSITE
+========================================= */
+
+.site-footer {
+  width: 100%;
+  min-height: 200px;
+  margin: 0;
+  padding: 25px 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #777777;
+  text-align: center;
+}
+
+.site-footer-content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SOCIAL ICONS */
+
+.site-footer-socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 0 7px;
+  padding: 0;
+}
+
+.site-footer-socials a {
+  width: 18px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #414141;
+  background: transparent;
+  text-decoration: none;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.site-footer-socials a svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+.site-footer-socials a:hover {
+  color: #6e8c0b;
+}
+
+/* PHONE NUMBER */
+
+.site-footer-contact {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #777777;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+/* EMAIL */
+
+.site-footer-contact:hover {
+  color: #6e8c0b;
+}
+
+/* ADDRESS */
+
+.site-footer-address {
+  margin: 7px 0 0;
+  padding: 0;
+  color: #777777;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .site-footer {
+    min-height: 190px;
+    padding: 25px 18px 20px;
+  }
+
+  .site-footer-address {
+    max-width: 600px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .site-footer {
+    min-height: 180px;
+    padding: 22px 14px 18px;
+  }
+
+  .site-footer-socials {
+    gap: 17px;
+    margin-bottom: 7px;
+  }
+
+  .site-footer-socials a {
+    width: 18px;
+    height: 20px;
+  }
+
+  .site-footer-socials a svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .site-footer-contact {
+    font-size: 12px;
+  }
+
+  .site-footer-address {
+    max-width: 350px;
+    margin-top: 7px;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+}

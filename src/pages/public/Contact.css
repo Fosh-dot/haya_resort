@@ -1,0 +1,339 @@
+/* =========================================
+   HAYA RESORT — CONTACT PAGE
+========================================= */
+
+.haya-contact {
+  width: 100%;
+  background: #fff;
+  color: #77764f;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+/* =========================================
+   PAGE HEADING
+========================================= */
+
+.haya-contact-heading {
+  width: 100%;
+  padding: 75px 20px 35px;
+  text-align: center;
+}
+
+.haya-contact-heading h1 {
+  margin: 0;
+  color: #c7a447;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.2;
+}
+
+/* =========================================
+   CONTACT CONTENT
+========================================= */
+
+.haya-contact-content {
+  width: min(100% - 80px, 1100px);
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+/* =========================================
+   OFFICE INFORMATION
+========================================= */
+
+.haya-contact-offices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 65px;
+  margin-bottom: 95px;
+}
+
+.haya-contact-office {
+  min-width: 0;
+  text-align: center;
+}
+
+.haya-contact-office h2 {
+  margin: 0 0 25px;
+  color: #c0a04c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.haya-contact-icon {
+  margin-bottom: 18px;
+  color: #c0a04c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.haya-contact-schedule {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-bottom: 20px;
+}
+
+.haya-contact-schedule h3 {
+  margin: 0 0 5px;
+  color: #a69a69;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.haya-contact-schedule p {
+  margin: 0;
+  color: #a69a69;
+  font-size: 0.84rem;
+  line-height: 1.8;
+}
+
+.haya-contact-phone {
+  display: inline-block;
+  color: #92916f;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.haya-contact-phone:hover {
+  color: #c0a04c;
+}
+
+/* =========================================
+   CONTACT FORM SECTION
+========================================= */
+
+.haya-contact-form-section {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.haya-contact-form-intro {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.haya-contact-form-intro h2 {
+  margin: 0 0 12px;
+  color: #92916f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.haya-contact-form-intro p {
+  margin: 0;
+  color: #92916f;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.haya-contact-form {
+  width: 100%;
+}
+
+.haya-contact-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.haya-contact-field label {
+  margin-bottom: 10px;
+  color: #858567;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.haya-contact-field input,
+.haya-contact-field textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d8d5c9;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: #555;
+  font-family: inherit;
+  font-size: 1rem;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.haya-contact-field input {
+  min-height: 48px;
+  padding: 12px 14px;
+}
+
+.haya-contact-field textarea {
+  min-height: 170px;
+  padding: 14px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.haya-contact-field input:focus,
+.haya-contact-field textarea:focus {
+  border-color: #bba04f;
+  box-shadow: 0 0 0 2px rgba(187, 160, 79, 0.1);
+}
+
+.haya-contact-field input:focus-visible,
+.haya-contact-field textarea:focus-visible {
+  outline: 1px solid #bba04f;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.haya-contact-submit {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  padding: 14px 20px;
+  border: 1px solid #d8d5c9;
+  border-radius: 0;
+  background: transparent;
+  color: #92916f;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.haya-contact-submit:hover:not(:disabled) {
+  border-color: #bba04f;
+  background: #bba04f;
+  color: #fff;
+}
+
+.haya-contact-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+/* =========================================
+   FEEDBACK MESSAGES
+========================================= */
+
+.haya-contact-feedback {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.haya-contact-feedback.success {
+  border: 1px solid #c6d8c1;
+  background: #f3f8f0;
+  color: #456b42;
+}
+
+.haya-contact-feedback.error {
+  border: 1px solid #e2c6c1;
+  background: #fff5f3;
+  color: #9a4036;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+  .haya-contact-heading {
+    padding-top: 60px;
+  }
+
+  .haya-contact-content {
+    width: calc(100% - 48px);
+  }
+
+  .haya-contact-offices {
+    gap: 35px;
+    margin-bottom: 75px;
+  }
+
+  .haya-contact-schedule {
+    gap: 18px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .haya-contact-heading {
+    padding: 45px 18px 30px;
+  }
+
+  .haya-contact-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .haya-contact-content {
+    width: calc(100% - 36px);
+    padding-bottom: 60px;
+  }
+
+  .haya-contact-offices {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    margin-bottom: 65px;
+  }
+
+  .haya-contact-office h2 {
+    font-size: 1.15rem;
+  }
+
+  .haya-contact-schedule {
+    gap: 24px;
+  }
+
+  .haya-contact-form-intro {
+    margin-bottom: 28px;
+  }
+
+  .haya-contact-form-intro h2 {
+    font-size: 1.25rem;
+  }
+
+  .haya-contact-form-intro p {
+    font-size: 0.9rem;
+  }
+
+  .haya-contact-field {
+    margin-bottom: 22px;
+  }
+
+  .haya-contact-field input {
+    min-height: 46px;
+  }
+
+  .haya-contact-field textarea {
+    min-height: 150px;
+  }
+}

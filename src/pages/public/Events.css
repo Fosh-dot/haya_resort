@@ -1,0 +1,115 @@
+.haya-events-page {
+  width: 100%;
+  background: #ffffff;
+  color: #85865f;
+  font-family: "Comfortaa", sans-serif;
+  overflow: hidden;
+}
+
+.haya-events-intro {
+  width: 100%;
+  padding: 50px 24px 18px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.haya-events-intro h1 {
+  margin: 0 0 2px;
+  color: #c9a45b;
+  font-size: clamp(30px, 4.3vw, 44px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.haya-events-intro h2 {
+  margin: 0 0 12px;
+  color: #85865f;
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.haya-events-intro p {
+  max-width: 850px;
+  margin: 0 auto;
+  color: #777777;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.haya-events-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.haya-events-gallery-item {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: white;
+}
+
+.haya-events-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1.5/ 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 600px) {
+  .haya-events-intro {
+    padding: 38px 18px 20px;
+  }
+
+  .haya-events-intro h1 {
+    font-size: clamp(26px, 7vw, 34px);
+  }
+
+  .haya-events-intro p {
+    font-size: 11px;
+  }
+
+  .haya-events-gallery {
+    gap: 5px;
+    padding: 0 5px;
+  }
+
+  .haya-events-gallery-item img {
+    aspect-ratio: 1 0.5 / 1;
+  }
+}
+/* Keep the final gallery row filled */
+.haya-events-gallery-item:last-child {
+  grid-column: 1 / -1;
+  height: auto;
+}
+
+.haya-events-gallery-item:last-child img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5 / 1;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .haya-events-gallery {
+    gap: 5px;
+    padding: 0 5px;
+  }
+
+  .haya-events-gallery-item:last-child {
+    grid-column: 1 / -1;
+  }
+}

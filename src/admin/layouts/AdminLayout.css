@@ -1,0 +1,458 @@
+/* =====================================================
+   HAYA RESORT — ADMIN SYSTEM
+   Premium Hospitality Management Interface
+===================================================== */
+
+.admin-shell {
+  min-height: 100vh;
+  background: #f3f1ec;
+  color: #252923;
+  display: flex;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.admin-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 248px;
+  background: #111712;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* BRAND */
+
+.admin-logo-area {
+  height: 92px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.admin-logo-mark {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #b99a60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d1b77d;
+  font-family: Georgia, serif;
+  font-size: 21px;
+}
+
+.admin-logo-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-logo-name {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.admin-logo-subtitle {
+  margin-top: 5px;
+  color: #9a9f98;
+  font-size: 7px;
+  letter-spacing: 3px;
+}
+
+/* SIDEBAR LABEL */
+
+.admin-sidebar-label {
+  padding: 25px 25px 13px;
+  color: #6f786f;
+  font-size: 8px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* NAVIGATION */
+
+.admin-navigation {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 13px;
+}
+
+.admin-nav-group {
+  margin-bottom: 20px;
+}
+
+.admin-nav-section {
+  padding: 0 12px 8px;
+  color: #646c64;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.admin-nav-link {
+  height: 42px;
+  padding: 0 12px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #9ba29b;
+  text-decoration: none;
+  font-size: 11px;
+  border-radius: 3px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.admin-nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.admin-nav-link.active {
+  color: #ffffff;
+  background: #252d26;
+  box-shadow: inset 2px 0 0 #c5a96d;
+}
+
+.admin-nav-icon {
+  width: 18px;
+  text-align: center;
+  color: #a99160;
+  font-size: 14px;
+}
+
+/* SIDEBAR FOOTER */
+
+.admin-sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.admin-sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px 13px;
+}
+
+.admin-user-avatar {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  background: #2b342c;
+  color: #d1b77d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 12px;
+}
+
+.admin-user-info {
+  min-width: 0;
+}
+
+.admin-user-info strong {
+  display: block;
+  color: #e4e6e2;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.admin-user-info span {
+  display: block;
+  margin-top: 3px;
+  color: #6f786f;
+  font-size: 8px;
+  text-transform: capitalize;
+}
+
+.admin-logout-button {
+  width: 100%;
+  height: 37px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: #8e958e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 10px;
+  transition: 0.2s ease;
+}
+
+.admin-logout-button:hover {
+  color: #ffffff;
+  border-color: rgba(197, 169, 109, 0.35);
+}
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.admin-main {
+  width: calc(100% - 248px);
+  margin-left: 248px;
+  min-width: 0;
+}
+
+/* TOPBAR */
+
+.admin-topbar {
+  height: 72px;
+  background: #ffffff;
+  border-bottom: 1px solid #e3dfd6;
+  padding: 0 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-topbar-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #7d837d;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.admin-topbar-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #64866b;
+  display: block;
+}
+
+.admin-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-topbar-property {
+  text-align: right;
+}
+
+.admin-topbar-property span {
+  display: block;
+  color: #a09f99;
+  font-size: 7px;
+  letter-spacing: 1.4px;
+}
+
+.admin-topbar-property strong {
+  display: block;
+  margin-top: 3px;
+  color: #30342f;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.admin-topbar-divider {
+  height: 28px;
+  width: 1px;
+  background: #e2ded5;
+}
+
+.admin-topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.admin-topbar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #192119;
+  color: #cdb477;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 11px;
+}
+
+.admin-topbar-profile strong {
+  display: block;
+  color: #30342f;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.admin-topbar-profile span {
+  display: block;
+  margin-top: 3px;
+  color: #9a9c97;
+  font-size: 8px;
+}
+
+/* CONTENT */
+
+.admin-content {
+  padding: 32px 35px 50px;
+  min-height: calc(100vh - 72px);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 950px) {
+  .admin-sidebar {
+    width: 215px;
+  }
+
+  .admin-main {
+    width: calc(100% - 215px);
+    margin-left: 215px;
+  }
+
+  .admin-content {
+    padding: 25px;
+  }
+
+  .admin-topbar {
+    padding: 0 25px;
+  }
+}
+
+@media (max-width: 720px) {
+  .admin-sidebar {
+    width: 66px;
+  }
+
+  .admin-main {
+    width: calc(100% - 66px);
+    margin-left: 66px;
+  }
+
+  .admin-logo-area {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .admin-logo-copy,
+  .admin-sidebar-label,
+  .admin-nav-section,
+  .admin-nav-link > span:last-child,
+  .admin-user-info,
+  .admin-logout-button {
+    display: none;
+  }
+
+  .admin-navigation {
+    padding: 10px 9px;
+  }
+
+  .admin-nav-link {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .admin-nav-icon {
+    font-size: 15px;
+  }
+
+  .admin-sidebar-footer {
+    padding: 10px 8px;
+  }
+
+  .admin-sidebar-user {
+    justify-content: center;
+    padding: 5px 0 10px;
+  }
+
+  .admin-topbar {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .admin-topbar-property,
+  .admin-topbar-divider {
+    display: none;
+  }
+
+  .admin-content {
+    padding: 22px 15px 40px;
+  }
+}
+/* HAYA RESORT — SHARED REFRESH BUTTON */
+.admin-refresh-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 18px;
+  min-height: 44px;
+
+  background: #ffffff;
+  color: #293c30;
+
+  border: 1px solid #deded7;
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-refresh-button:hover:not(:disabled) {
+  background: #f8f7f2;
+  border-color: #c5a66b;
+  color: #293c30;
+  box-shadow: 0 3px 10px rgba(41, 60, 48, 0.08);
+  transform: translateY(-1px);
+}
+
+.admin-refresh-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.admin-refresh-button:focus-visible {
+  outline: 2px solid #c5a66b;
+  outline-offset: 3px;
+}
+
+.admin-refresh-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .admin-refresh-button {
+    padding: 10px 14px;
+    min-height: 42px;
+    font-size: 13px;
+  }
+}

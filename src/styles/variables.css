@@ -1,0 +1,22 @@
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-black: #1a1a1a;
+  --color-cream: #f7f5ef;
+  --color-sand: #e8dfd0;
+  --color-muted: #6b6861;
+  --color-border: #dedbd4;
+
+  /* Typography */
+  --font-body: Arial, sans-serif;
+  --font-display: Georgia, serif;
+
+  /* Layout */
+  --container-width: 1280px;
+  --page-padding: 32px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.7s ease;
+}

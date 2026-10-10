@@ -1,0 +1,985 @@
+.haya-booking-page {
+  --haya-ink: #26372d;
+  --haya-muted: #758078;
+  --haya-green: #496b50;
+  --haya-green-dark: #304d37;
+  --haya-cream: #f7f7f1;
+  --haya-border: #e5e9e1;
+
+  min-height: 100vh;
+  background: #f7f8f4;
+  color: var(--haya-ink);
+  font-family: inherit;
+  padding-bottom: 30px;
+}
+
+.haya-booking-page * {
+  box-sizing: border-box;
+}
+
+.haya-booking-header {
+  min-height: 82px;
+  padding: 18px 6%;
+  background: #fff;
+  border-bottom: 1px solid var(--haya-border);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.haya-booking-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  color: var(--haya-ink);
+}
+
+.haya-booking-brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #829581;
+  color: var(--haya-green-dark);
+  font-family: Georgia, serif;
+  font-size: 25px;
+}
+
+.haya-booking-brand strong,
+.haya-booking-brand small {
+  display: block;
+}
+
+.haya-booking-brand strong {
+  letter-spacing: 4px;
+  font-size: 15px;
+}
+
+.haya-booking-brand small {
+  margin-top: 4px;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.haya-booking-back,
+.haya-booking-text-button {
+  border: 0;
+  background: transparent;
+  color: var(--haya-green-dark);
+  font: inherit;
+  cursor: pointer;
+}
+
+.haya-booking-back {
+  justify-self: start;
+}
+
+.haya-booking-secure {
+  justify-self: end;
+  color: var(--haya-muted);
+  font-size: 12px;
+}
+
+.haya-booking-secure span {
+  color: var(--haya-green);
+  margin-right: 5px;
+}
+
+.haya-booking-hero {
+  text-align: center;
+  padding: 58px 20px 42px;
+  background: #edf1e9;
+}
+
+.haya-booking-eyebrow {
+  color: var(--haya-green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  margin: 0 0 10px;
+}
+
+.haya-booking-hero h1 {
+  margin: 0;
+  color: var(--haya-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(29px, 4vw, 44px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.haya-booking-hero > p:not(.haya-booking-eyebrow) {
+  max-width: 600px;
+  margin: 15px auto 0;
+  color: var(--haya-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.haya-booking-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-top: 34px;
+}
+
+.haya-booking-progress span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #89928b;
+  font-size: 11px;
+}
+
+.haya-booking-progress span b {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #c9d1c7;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.haya-booking-progress span.is-complete b,
+.haya-booking-progress span.is-active b {
+  background: var(--haya-green);
+  border-color: var(--haya-green);
+  color: #fff;
+}
+
+.haya-booking-progress span.is-complete {
+  color: var(--haya-green-dark);
+}
+
+.haya-booking-progress span.is-active {
+  color: var(--haya-ink);
+  font-weight: 700;
+}
+
+.haya-booking-progress i {
+  width: 35px;
+  height: 1px;
+  background: #cbd3c8;
+}
+
+.haya-booking-layout {
+  width: min(1190px, 92%);
+  margin: 42px auto 60px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 355px;
+  align-items: start;
+  gap: 28px;
+}
+
+.haya-booking-main {
+  display: grid;
+  gap: 22px;
+  min-width: 0;
+}
+
+.haya-booking-card,
+.haya-booking-summary-card {
+  background: #fff;
+  border: 1px solid var(--haya-border);
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgb(37 54 39 / 3%);
+}
+
+.haya-booking-card {
+  padding: 27px;
+}
+
+.haya-booking-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.haya-booking-card-heading h2,
+.haya-booking-summary-card h2 {
+  margin: 0;
+  color: var(--haya-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.haya-booking-card-heading > div > p:not(.haya-booking-eyebrow) {
+  color: var(--haya-muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 9px 0 0;
+}
+
+.haya-booking-card-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #edf2e9;
+  color: var(--haya-green-dark);
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.haya-booking-guest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 18px;
+}
+
+.haya-booking-guest-grid small,
+.haya-booking-special-request small {
+  display: block;
+  color: var(--haya-muted);
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  margin-bottom: 7px;
+}
+
+.haya-booking-guest-grid strong {
+  display: block;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+
+.haya-booking-special-request {
+  border-top: 1px solid var(--haya-border);
+  margin-top: 23px;
+  padding-top: 18px;
+}
+
+.haya-booking-special-request p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.haya-bank-details {
+  border: 1px solid var(--haya-border);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.haya-bank-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  border-bottom: 1px solid var(--haya-border);
+}
+
+.haya-bank-detail:last-child {
+  border-bottom: 0;
+}
+
+.haya-bank-detail > span {
+  color: var(--haya-muted);
+  font-size: 12px;
+}
+
+.haya-bank-detail > strong {
+  font-size: 13px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.haya-account-number {
+  flex-wrap: wrap;
+}
+
+.haya-booking-copy-button {
+  border: 1px solid #cbd7c9;
+  border-radius: 4px;
+  background: #f4f7f1;
+  color: var(--haya-green-dark);
+  padding: 7px 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.haya-payment-instructions {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f5f7f2;
+  border-radius: 6px;
+}
+
+.haya-payment-instructions strong {
+  font-size: 12px;
+}
+
+.haya-payment-instructions p {
+  color: var(--haya-muted);
+  font-size: 12px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  margin: 8px 0 0;
+}
+
+.haya-payment-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 21px 16px;
+}
+
+.haya-payment-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: var(--haya-ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.haya-payment-fields label b,
+.haya-terms-checkbox b {
+  color: #b45448;
+}
+
+.haya-payment-fields input:not([type="file"]) {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #dce2d9;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--haya-ink);
+  padding: 12px;
+  font: inherit;
+  font-weight: 400;
+}
+
+.haya-payment-fields input:focus {
+  outline: 2px solid #b9cbb4;
+  outline-offset: 1px;
+}
+
+.haya-payment-upload {
+  grid-column: 1 / -1;
+}
+
+.haya-upload-area {
+  min-height: 150px;
+  padding: 20px;
+  border: 1px dashed #b6c6b3;
+  border-radius: 7px;
+  background: #f8faf6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-align: center;
+}
+
+.haya-upload-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e6eee1;
+  color: var(--haya-green-dark);
+  font-size: 21px;
+}
+
+.haya-upload-area strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.haya-upload-area small {
+  color: var(--haya-muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.haya-upload-area input[type="file"] {
+  width: 100%;
+  max-width: 270px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.haya-payment-review-note {
+  margin-top: 20px;
+  padding: 14px;
+  background: #f6f7f2;
+  border-left: 3px solid #9aaf92;
+  color: var(--haya-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.haya-terms-intro {
+  color: var(--haya-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.haya-booking-terms-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  margin: 17px 0;
+  border: 1px solid var(--haya-border);
+  border-radius: 5px;
+  background: #f8faf6;
+  color: var(--haya-green-dark);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.haya-booking-terms-button span {
+  font-size: 17px;
+}
+
+.haya-terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding-top: 4px;
+  color: var(--haya-ink);
+  font-size: 12px;
+  line-height: 1.8;
+  cursor: pointer;
+}
+
+.haya-terms-checkbox input {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  accent-color: var(--haya-green);
+  flex-shrink: 0;
+}
+
+.haya-booking-sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+.haya-booking-summary-card {
+  padding: 25px 22px;
+}
+
+.haya-booking-summary-card h2 {
+  font-size: 27px;
+}
+
+.haya-booking-location {
+  color: var(--haya-muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 10px 0 23px;
+}
+
+.haya-summary-dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-bottom: 21px;
+  border-bottom: 1px solid var(--haya-border);
+}
+
+.haya-summary-dates > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.haya-summary-dates small {
+  color: var(--haya-muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.haya-summary-dates strong {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.haya-summary-dates span {
+  color: var(--haya-muted);
+  font-size: 10px;
+}
+
+.haya-summary-count {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--haya-border);
+  color: var(--haya-green-dark);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.haya-summary-room-list {
+  display: grid;
+  gap: 16px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--haya-border);
+}
+
+.haya-summary-room {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.haya-summary-room-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  background: #edf2e9;
+  color: var(--haya-green-dark);
+  flex-shrink: 0;
+}
+
+.haya-summary-room-info {
+  min-width: 0;
+}
+
+.haya-summary-room-info strong {
+  display: block;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.haya-summary-room-info small {
+  display: block;
+  margin-top: 5px;
+  color: var(--haya-muted);
+  font-size: 10px;
+}
+
+.haya-summary-price-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  color: var(--haya-muted);
+  font-size: 11px;
+}
+
+.haya-summary-price-row strong {
+  color: var(--haya-ink);
+  text-align: right;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.haya-summary-total {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--haya-border);
+}
+
+.haya-summary-total span {
+  font-size: 12px;
+}
+
+.haya-summary-total strong {
+  color: var(--haya-green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  text-align: right;
+}
+
+.haya-summary-note {
+  margin: 16px 0;
+  color: var(--haya-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.haya-booking-primary,
+.haya-booking-secondary {
+  min-height: 48px;
+  border-radius: 5px;
+  padding: 13px 18px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.haya-booking-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  border: 1px solid var(--haya-green-dark);
+  background: var(--haya-green-dark);
+  color: #fff;
+}
+
+.haya-booking-primary:hover:not(:disabled) {
+  background: #243d2a;
+}
+
+.haya-booking-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.haya-booking-secondary {
+  border: 1px solid #d8dfd4;
+  background: #fff;
+  color: var(--haya-ink);
+}
+
+.haya-summary-secure {
+  margin: 13px 0 0;
+  text-align: center;
+  color: var(--haya-muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.haya-booking-alert {
+  padding: 17px;
+  border: 1px solid #e6c9c2;
+  border-radius: 6px;
+  background: #fff6f3;
+  color: #8a3f34;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.haya-booking-alert strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.haya-booking-alert p {
+  margin: 0;
+}
+
+.haya-booking-loading {
+  color: var(--haya-muted);
+  padding: 20px 0;
+  font-size: 12px;
+}
+
+.haya-booking-notice {
+  padding: 15px;
+  border: 1px solid #d8e4d1;
+  border-radius: 6px;
+  background: #f0f6ec;
+  color: var(--haya-green-dark);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.haya-booking-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 24px 6%;
+  border-top: 1px solid var(--haya-border);
+  color: var(--haya-muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.haya-terms-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(19 31 22 / 62%);
+}
+
+.haya-terms-modal {
+  width: min(620px, 100%);
+  max-height: min(750px, 90vh);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 20px 70px rgb(0 0 0 / 20%);
+}
+
+.haya-terms-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 25px;
+  border-bottom: 1px solid var(--haya-border);
+}
+
+.haya-terms-modal-header h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.haya-terms-close {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--haya-border);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--haya-ink);
+  font-size: 25px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.haya-terms-scroll {
+  overflow-y: auto;
+  padding: 25px;
+}
+
+.haya-terms-scroll h3 {
+  margin: 22px 0 8px;
+  color: var(--haya-ink);
+  font-size: 13px;
+}
+
+.haya-terms-scroll h3:first-child {
+  margin-top: 0;
+}
+
+.haya-terms-scroll p {
+  margin: 0;
+  color: var(--haya-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.haya-terms-draft-note {
+  margin-top: 25px;
+  padding: 15px;
+  border-left: 3px solid #c59c61;
+  background: #fbf6ed;
+  color: #775e39;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.haya-terms-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 18px 25px;
+  border-top: 1px solid var(--haya-border);
+}
+
+.haya-terms-modal-footer .haya-booking-primary {
+  width: auto;
+}
+
+.haya-success-card {
+  width: min(590px, 92%);
+  margin: 70px auto;
+  padding: 42px;
+  text-align: center;
+  border: 1px solid var(--haya-border);
+  border-radius: 9px;
+  background: #fff;
+}
+
+.haya-success-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 23px;
+  border-radius: 50%;
+  background: #e8f1e3;
+  color: var(--haya-green-dark);
+  font-size: 28px;
+}
+
+.haya-success-card h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(27px, 4vw, 37px);
+  font-weight: 400;
+}
+
+.haya-success-card > p:not(.haya-booking-eyebrow) {
+  color: var(--haya-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.haya-success-reference,
+.haya-success-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--haya-border);
+  text-align: left;
+}
+
+.haya-success-reference span,
+.haya-success-total span {
+  color: var(--haya-muted);
+  font-size: 12px;
+}
+
+.haya-success-reference strong,
+.haya-success-total strong {
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  text-align: right;
+}
+
+.haya-success-notice {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 5px;
+  background: #f0f6ec;
+  color: var(--haya-green-dark);
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .haya-booking-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .haya-booking-sidebar {
+    position: static;
+  }
+
+  .haya-booking-summary-card {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .haya-booking-header {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 16px 5%;
+  }
+
+  .haya-booking-header .haya-booking-brand {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .haya-booking-back {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .haya-booking-secure {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .haya-booking-hero {
+    padding: 42px 17px 30px;
+  }
+
+  .haya-booking-progress {
+    gap: 7px;
+  }
+
+  .haya-booking-progress span {
+    gap: 5px;
+    font-size: 9px;
+  }
+
+  .haya-booking-progress span b {
+    width: 21px;
+    height: 21px;
+  }
+
+  .haya-booking-progress i {
+    width: 14px;
+  }
+
+  .haya-booking-layout {
+    width: 92%;
+    margin-top: 25px;
+    gap: 19px;
+  }
+
+  .haya-booking-card {
+    padding: 20px 16px;
+  }
+
+  .haya-booking-card-heading h2 {
+    font-size: 22px;
+  }
+
+  .haya-booking-guest-grid,
+  .haya-payment-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .haya-payment-upload {
+    grid-column: auto;
+  }
+
+  .haya-bank-detail {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .haya-bank-detail > strong {
+    text-align: left;
+  }
+
+  .haya-booking-footer {
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .haya-terms-modal-header,
+  .haya-terms-scroll {
+    padding: 19px;
+  }
+
+  .haya-terms-modal-footer {
+    padding: 15px;
+  }
+
+  .haya-success-card {
+    padding: 27px 19px;
+    margin: 35px auto;
+  }
+}

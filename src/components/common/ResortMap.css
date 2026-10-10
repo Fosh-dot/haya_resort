@@ -1,0 +1,34 @@
+.haya-resort-map {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background: #ffffff;
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.haya-resort-map img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 600px) {
+  .haya-resort-map {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .haya-resort-map img {
+    width: 100%;
+    height: auto;
+  }
+}

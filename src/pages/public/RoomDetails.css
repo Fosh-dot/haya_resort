@@ -1,0 +1,176 @@
+.room-details-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+/* ROOM IMAGE GALLERY */
+
+.room-details-gallery {
+  position: relative;
+  width: 88%;
+  max-width: 730px;
+  margin: 30px auto 0;
+}
+
+.room-details-gallery-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.5 / 1;
+  overflow: hidden;
+  background: #fff;
+}
+
+.room-details-gallery-main > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SIDE IMAGE NAVIGATION */
+
+.room-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 145px;
+
+  padding: 0;
+  border: none;
+  border-radius: 0;
+
+  background: rgba(255, 255, 255, 0.88);
+  color: #c9c9c9;
+
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.room-gallery-arrow:hover {
+  background: #fff;
+  color: #a0af2a;
+}
+
+.room-gallery-previous {
+  left: 0;
+}
+
+.room-gallery-next {
+  right: 0;
+}
+
+/* IMAGE COUNTER */
+
+.room-gallery-counter {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* ROOM TITLE AND CAPACITY */
+
+.room-details-information {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto 50px;
+  text-align: center;
+}
+
+.room-details-information h1 {
+  margin: 0;
+
+  color: #d0ad65;
+  font-family: inherit;
+  font-size: clamp(38px, 5.5vw, 58px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.room-details-capacity {
+  margin: 14px 0 35px;
+
+  color: #858585;
+  font-family: inherit;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* ORIGINAL ROOM DESCRIPTION IMAGE */
+
+.room-description-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.room-description-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 768px) {
+  .room-details-gallery {
+    width: 94%;
+    margin-top: 18px;
+  }
+
+  .room-details-gallery-main {
+    aspect-ratio: 1.5 / 1;
+  }
+
+  .room-gallery-arrow {
+    width: 32px;
+    height: 90px;
+    font-size: 14px;
+  }
+
+  .room-gallery-counter {
+    top: 8px;
+    right: 8px;
+    font-size: 11px;
+  }
+
+  .room-details-information {
+    width: 94%;
+    margin-top: 18px;
+    margin-bottom: 35px;
+  }
+
+  .room-details-information h1 {
+    font-size: clamp(30px, 7vw, 44px);
+  }
+
+  .room-details-capacity {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: clamp(19px, 4.5vw, 25px);
+  }
+
+  .room-description-image {
+    max-width: 100%;
+  }
+}
