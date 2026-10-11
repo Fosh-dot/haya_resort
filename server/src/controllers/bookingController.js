@@ -417,8 +417,7 @@ async function createBooking(req, res) {
 ========================================================= */
 async function getBookings(req, res) {
   try {
-    const [bookings] = await db.query(
-      `
+    const [bookings] = await db.query(`
       SELECT
         b.id,
         b.booking_reference,
@@ -443,41 +442,53 @@ async function getBookings(req, res) {
         r.name AS room_name,
         r.category AS room_category,
 
-        GROUP_CONCAT(
-          DISTINCT br.room_id
-          ORDER BY br.room_id
-        ) AS room_ids,
-
-        GROUP_CONCAT(
-          DISTINCT r2.name
-          ORDER BY r2.name
-          SEPARATOR ', '
-        ) AS room_names
+        room_summary.room_ids,
+        room_summary.room_names
 
       FROM bookings b
 
       LEFT JOIN customers c
-        ON b.customer_id = c.id
+        ON c.id = b.customer_id
 
       LEFT JOIN rooms r
-        ON b.room_id = r.id
+        ON r.id = b.room_id
 
-      LEFT JOIN booking_rooms br
-        ON br.booking_id = b.id
+      LEFT JOIN (
+        SELECT
+          br.booking_id,
 
-      LEFT JOIN rooms r2
-        ON r2.id = br.room_id
+          GROUP_CONCAT(
+            DISTINCT br.room_id
+            ORDER BY br.room_id
+          ) AS room_ids,
 
-      GROUP BY b.id
+          GROUP_CONCAT(
+            DISTINCT r2.name
+            ORDER BY r2.name
+            SEPARATOR ', '
+          ) AS room_names
+
+        FROM booking_rooms br
+
+        LEFT JOIN rooms r2
+          ON r2.id = br.room_id
+
+        GROUP BY br.booking_id
+      ) AS room_summary
+        ON room_summary.booking_id = b.id
+
       ORDER BY b.created_at DESC
-      `,
-    );
+    `);
 
-    return res.json({ bookings });
+    return res.status(200).json({
+      success: true,
+      bookings,
+    });
   } catch (error) {
     console.error("Get bookings error:", error);
 
     return res.status(500).json({
+      success: false,
       message: "Unable to load bookings.",
     });
   }
