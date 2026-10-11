@@ -10,6 +10,7 @@ function BookNow() {
   const [error, setError] = useState("");
 
   const today = new Date();
+
   const todayString = [
     today.getFullYear(),
     String(today.getMonth() + 1).padStart(2, "0"),

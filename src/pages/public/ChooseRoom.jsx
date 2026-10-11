@@ -59,7 +59,15 @@ import azureVilla10 from "../../assets/haya/rooms/azure-villa10.jpg";
 import azureVilla11 from "../../assets/haya/rooms/azure-villa11.jpg";
 import azureVilla12 from "../../assets/haya/rooms/azure-villa12.jpg";
 
-const API_URL = "http://localhost:5000/api";
+// Production backend. If Vercel's VITE_API_URL is set, it may contain
+// either the backend origin or the origin followed by /api; normalize both.
+const CONFIGURED_API_URL = (
+  import.meta.env.VITE_API_URL || "https://haya-resort.onrender.com"
+)
+  .trim()
+  .replace(/\/+$/, "");
+const API_BASE_URL = CONFIGURED_API_URL.replace(/\/api$/i, "");
+const API_URL = `${API_BASE_URL}/api`;
 
 /* =========================================
    ROOM GALLERIES — MATCH ROOM DETAILS PAGE
@@ -214,19 +222,37 @@ function ChooseRoom() {
         setLoading(true);
         setError("");
 
-        const response = await fetch(`${API_URL}/rooms`);
+        const response = await fetch(`${API_URL}/rooms`, {
+          method: "GET",
+          headers: { Accept: "application/json" },
+        });
 
         if (!response.ok) {
-          throw new Error("Unable to load rooms.");
+          throw new Error(
+            `Rooms API returned HTTP ${response.status}. Please try again shortly.`,
+          );
         }
 
         const data = await response.json();
-
+        // Support the common response shapes used by Express APIs.
         const roomList = Array.isArray(data)
           ? data
-          : Array.isArray(data.rooms)
+          : Array.isArray(data?.rooms)
             ? data.rooms
-            : [];
+            : Array.isArray(data?.data)
+              ? data.data
+              : Array.isArray(data?.results)
+                ? data.results
+                : Array.isArray(data?.data?.rooms)
+                  ? data.data.rooms
+                  : null;
+
+        if (!Array.isArray(roomList)) {
+          console.error("Unexpected rooms API response:", data);
+          throw new Error(
+            "The backend responded, but its rooms response format was unexpected.",
+          );
+        }
 
         if (!cancelled) {
           setRooms(roomList);
@@ -236,7 +262,8 @@ function ChooseRoom() {
 
         if (!cancelled) {
           setError(
-            "We couldn't load the rooms. Please check that your backend is running.",
+            err?.message ||
+              "We couldn't load the rooms. Please refresh and try again.",
           );
         }
       } finally {
@@ -306,7 +333,7 @@ function ChooseRoom() {
       return image;
     }
 
-    return `http://localhost:5000/${image.replace(/^\/+/, "")}`;
+    return `${API_BASE_URL}/${image.replace(/^\/+/, "")}`;
   };
 
   const getRoomPrice = (room) =>
@@ -1114,7 +1141,7 @@ function RoomCard({
       return image;
     }
 
-    return `http://localhost:5000/${image.replace(/^\/+/, "")}`;
+    return `${API_BASE_URL}/${image.replace(/^\/+/, "")}`;
   };
 
   return (
