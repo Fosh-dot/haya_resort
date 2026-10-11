@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { getAdminToken } from "../services/adminAuth";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://haya-resort.onrender.com/api";
 
 const STATUS_OPTIONS = ["pending", "confirmed", "cancelled", "rejected"];
 

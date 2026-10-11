@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { getAdminToken } from "../services/adminAuth";
 import "./AdminMessages.css";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://haya-resort.onrender.com/api";
 
 function AdminMessages() {
   const [messages, setMessages] = useState([]);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAdminToken } from "../services/adminAuth";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://haya-resort.onrender.com/api";
 
 function AdminPaymentSlips() {
   const [payments, setPayments] = useState([]);

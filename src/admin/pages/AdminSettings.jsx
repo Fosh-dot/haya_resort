@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAdminToken } from "../services/adminAuth";
 import "./AdminSettings.css";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://haya-resort.onrender.com/api";
 
 const initialSettings = {
   bankName: "",
