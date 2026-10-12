@@ -456,7 +456,7 @@ async function getPaymentSlip(req, res) {
     }
 
     const fileName = path.basename(paymentSlip);
-    const uploadDirectory = path.resolve(__dirname, "../../uploads");
+    const uploadDirectory = path.resolve(process.cwd(), "uploads");
     const filePath = path.join(uploadDirectory, fileName);
 
     if (!fs.existsSync(filePath)) {

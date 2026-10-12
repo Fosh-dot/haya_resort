@@ -15,12 +15,10 @@ const {
 
 const router = express.Router();
 
-/* =========================================================
-   PAYMENT SLIP UPLOAD
-========================================================= */
+// Use one consistent upload directory.
+const uploadDir = path.resolve(process.cwd(), "uploads");
 
-const uploadDir = path.join(__dirname, "../../uploads");
-
+// Ensure the directory exists before accepting uploads.
 fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
@@ -33,18 +31,12 @@ const storage = multer.diskStorage({
 
     const safeName = path
       .basename(file.originalname, extension)
-      .replace(/[^a-zA-Z0-9-_]/g, "-")
+      .replace(/[^a-zA-Z0-9_-]/g, "-")
       .substring(0, 50);
 
-    const uniqueName = `${Date.now()}-${safeName}${extension}`;
-
-    cb(null, uniqueName);
+    cb(null, `${Date.now()}-${safeName}${extension}`);
   },
 });
-
-/* =========================================================
-   FILE VALIDATION
-========================================================= */
 
 const fileFilter = (req, file, cb) => {
   const allowedTypes = [
@@ -57,7 +49,7 @@ const fileFilter = (req, file, cb) => {
   if (!allowedTypes.includes(file.mimetype)) {
     return cb(
       new Error("Only JPG, PNG, WEBP, and PDF files are allowed."),
-      false,
+      false
     );
   }
 
@@ -72,24 +64,13 @@ const uploadPaymentSlip = multer({
   },
 });
 
-/* =========================================================
-   CUSTOMER PAYMENT SUBMISSION
-   Public endpoint
-========================================================= */
-
+// Customer payment submission.
 router.post("/", uploadPaymentSlip.single("paymentSlip"), createPayment);
 
-/* =========================================================
-   ADMIN PAYMENT MANAGEMENT
-   Protected endpoints
-========================================================= */
-
+// Admin payment management.
 router.get("/", requireAdmin, getPayments);
-
 router.get("/:id/slip", requireAdmin, getPaymentSlip);
-
 router.get("/:id", requireAdmin, getPaymentById);
-
 router.patch("/:id/status", requireAdmin, updatePaymentStatus);
 
 module.exports = router;
