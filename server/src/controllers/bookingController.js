@@ -85,6 +85,7 @@ function makeBookingReference() {
    Legacy: roomId: 1
 
    Prices come from the database.
+   Overlapping bookings are permitted.
 ========================================================= */
 async function createBooking(req, res) {
   let connection;
@@ -180,7 +181,7 @@ async function createBooking(req, res) {
 
     const selectedRooms = roomIds.map((id) => roomById.get(id));
 
-    /* CHECK AVAILABILITY AND CAPACITY */
+    /* CHECK ROOM AVAILABILITY AND CAPACITY */
     for (const room of selectedRooms) {
       if (!Number(room.is_available)) {
         await connection.rollback();
@@ -201,45 +202,14 @@ async function createBooking(req, res) {
       }
     }
 
-    /* CHECK DATE CONFLICTS */
-    for (const room of selectedRooms) {
-      const [legacyConflicts] = await connection.query(
-        `
-        SELECT id
-        FROM bookings
-        WHERE room_id = ?
-          AND status NOT IN ('cancelled', 'rejected')
-          AND check_in < ?
-          AND check_out > ?
-        LIMIT 1
-        `,
-        [room.id, checkOut, checkIn],
-      );
+    /*
+      DATE-CONFLICT CHECKS REMOVED.
 
-      const [multipleRoomConflicts] = await connection.query(
-        `
-        SELECT b.id
-        FROM booking_rooms br
-        INNER JOIN bookings b
-          ON b.id = br.booking_id
-        WHERE br.room_id = ?
-          AND b.status NOT IN ('cancelled', 'rejected')
-          AND b.check_in < ?
-          AND b.check_out > ?
-        LIMIT 1
-        `,
-        [room.id, checkOut, checkIn],
-      );
+      Multiple customers may book the same room for overlapping
+      dates. Each booking is saved as a separate database record.
 
-      if (legacyConflicts.length > 0 || multipleRoomConflicts.length > 0) {
-        await connection.rollback();
-        transactionStarted = false;
-
-        return res.status(409).json({
-          message: `${room.name} is already booked for the selected dates. Please choose different dates or rooms.`,
-        });
-      }
-    }
+      Room availability and guest-capacity validation remain active.
+    */
 
     /* FIND EXISTING CUSTOMER */
     const normalizedEmail = email.trim().toLowerCase();
