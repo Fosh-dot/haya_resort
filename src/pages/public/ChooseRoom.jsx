@@ -62,7 +62,7 @@ import azureVilla12 from "../../assets/haya/rooms/azure-villa12.jpg";
 // Production backend. If Vercel's VITE_API_URL is set, it may contain
 // either the backend origin or the origin followed by /api; normalize both.
 const CONFIGURED_API_URL = (
-  import.meta.env.VITE_API_URL || "https://haya-resort.onrender.com"
+  import.meta.env.VITE_API_URL || "https://api.hayaresort.org/api"
 )
   .trim()
   .replace(/\/+$/, "");

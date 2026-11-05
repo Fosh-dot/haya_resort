@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Booking.css";
 
-const API_URL = "https://haya-resort.onrender.com/api";
+const API_URL = "https://api.hayaresort.org/api";
 
 const EMPTY_SETTINGS = {
   bankName: "",

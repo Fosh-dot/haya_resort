@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { getAdminToken } from "../services/adminAuth";
 import "./AdminPayments.css";
 
-const API_URL = "https://haya-resort.onrender.com/api";
+const API_URL = "https://api.hayaresort.org/api";
 
 function AdminPayments() {
   const [payments, setPayments] = useState([]);
