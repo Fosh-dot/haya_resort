@@ -5,12 +5,14 @@ const {
   updatePaymentSettings,
 } = require("../controllers/settingsController");
 
+const { requireAdmin } = require("../middleware/authMiddleware");
+
 const router = express.Router();
 
-// Retrieve payment settings.
+// Public: guests need payment details to complete bookings.
 router.get("/payment", getPaymentSettings);
 
-// Save payment settings.
-router.put("/payment", updatePaymentSettings);
+// Admin only: updating payment details.
+router.put("/payment", requireAdmin, updatePaymentSettings);
 
 module.exports = router;

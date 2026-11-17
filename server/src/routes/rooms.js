@@ -8,12 +8,17 @@ const {
   deleteRoom,
 } = require("../controllers/roomController");
 
+const { requireAdmin } = require("../middleware/authMiddleware");
+
 const router = express.Router();
 
+// Public room access
 router.get("/", getRooms);
 router.get("/:id", getRoomById);
-router.post("/", createRoom);
-router.patch("/:id", updateRoom);
-router.delete("/:id", deleteRoom);
+
+// Admin-only room management
+router.post("/", requireAdmin, createRoom);
+router.patch("/:id", requireAdmin, updateRoom);
+router.delete("/:id", requireAdmin, deleteRoom);
 
 module.exports = router;

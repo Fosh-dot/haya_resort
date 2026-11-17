@@ -7,15 +7,21 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Build files
+dist/
+dist-ssr/
+
+# Local files
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
@@ -28,9 +34,10 @@ dist-ssr
 .env.*
 !.env.example
 
-# Backend dependencies
-server/node_modules/
-
 # Uploaded files
 server/uploads/*
 !server/uploads/.gitkeep
+
+# Backups and archives
+server.zip
+*.zip

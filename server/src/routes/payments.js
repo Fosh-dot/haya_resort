@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+const rateLimit = require("express-rate-limit");
 
 const { requireAdmin } = require("../middleware/authMiddleware");
 
@@ -15,10 +16,18 @@ const {
 
 const router = express.Router();
 
-// Use one consistent upload directory.
+const paymentLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: {
+    message: "Too many payment submissions. Please try again later.",
+  },
+});
+
 const uploadDir = path.resolve(process.cwd(), "uploads");
 
-// Ensure the directory exists before accepting uploads.
 fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
@@ -49,7 +58,7 @@ const fileFilter = (req, file, cb) => {
   if (!allowedTypes.includes(file.mimetype)) {
     return cb(
       new Error("Only JPG, PNG, WEBP, and PDF files are allowed."),
-      false
+      false,
     );
   }
 
@@ -64,10 +73,16 @@ const uploadPaymentSlip = multer({
   },
 });
 
-// Customer payment submission.
-router.post("/", uploadPaymentSlip.single("paymentSlip"), createPayment);
+// Public payment submission
+// Rate limiter runs before file upload.
+router.post(
+  "/",
+  paymentLimiter,
+  uploadPaymentSlip.single("paymentSlip"),
+  createPayment,
+);
 
-// Admin payment management.
+// Admin payment management
 router.get("/", requireAdmin, getPayments);
 router.get("/:id/slip", requireAdmin, getPaymentSlip);
 router.get("/:id", requireAdmin, getPaymentById);
